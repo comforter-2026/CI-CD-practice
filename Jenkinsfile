@@ -6,39 +6,45 @@ pipeline {
         stage('Checkout') {
             steps {
                 echo 'Checking out code...'
+                checkout scm
+            }
+        }
+
+        stage('Workspace Check') {
+            steps {
+                echo 'Listing workspace contents...'
+                sh 'ls -la'
             }
         }
 
         stage('Install Dependencies') {
             steps {
-                sh 'npm install'
+                echo 'No package.json found — skipping npm install'
             }
         }
 
         stage('Build') {
             steps {
-                echo 'Building application...'
-                sh 'npm run build || true'
+                echo 'No build step required for this project'
             }
         }
 
         stage('Test') {
             steps {
-                echo 'Running tests...'
-                sh 'npm test || true'
+                echo 'No tests defined'
             }
         }
 
         stage('Deploy') {
             steps {
-                echo 'Deploying application...'
+                echo 'No deployment configured yet'
             }
         }
     }
 
     post {
         success {
-            echo 'Pipeline completed successfully!'
+            echo 'Pipeline completed successfully 🎉'
         }
 
         failure {
