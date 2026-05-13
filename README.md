@@ -1,2 +1,2 @@
-# CI-CD-practice
-CI-CD-PRACTICE
+# ci-cd-practice
+jenkins practice
